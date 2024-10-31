@@ -67,9 +67,11 @@ console.log(lian)
   const levelYrs = students.filter(student => student.name >= 5);
   console.log(levelYrs);
 
-  const candidates = students.filter(student => {
-    let strongSkills = student.skills.filter(skill => skill.yrsExperience >= 5);
-    return strongSkills.length > 0;
-  });
+const has5yearsExp = skill => skill.yrsExperience >=  5;
+const hasStrongSkills = student => student.skills.filter(has5yearsExp).length > 0;
 
-  console.log(candidates);
+const candidates = students.filter(hasStrongSkills);
+console.log(candidates);
+
+
+
